@@ -35,7 +35,7 @@ void destroy(MeasurementSeries& s)
 
 bool min_value(const MeasurementSeries& s, double& out)
 {
-    if (s.size == 0)
+    if (s.size == 0 || s.data == nullptr)
     {
         return false;
     }
@@ -55,7 +55,7 @@ bool min_value(const MeasurementSeries& s, double& out)
 
 bool max_value(const MeasurementSeries& s, double& out)
 {
-    if (s.size == 0)
+    if (s.size == 0 || s.data == nullptr)
     {
         return false;
     }
@@ -151,6 +151,8 @@ bool normalize(MeasurementSeries& s)
 
 bool filter_greater(const MeasurementSeries& s, double threshold, MeasurementSeries& out)
 {
+    destroy(out);
+
     const std::size_t count = count_greater(s, threshold);
     if (!create(out, count))
     {
