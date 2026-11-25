@@ -1,13 +1,13 @@
 #include <cerrno>
 #include <cstdlib>
 #include <cstring>
-#include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 
 #include "lab2/series/series.hpp"
 
-namespace ls = lab2::series; 
+namespace ls = lab2::series;
 
 namespace
 {
@@ -19,7 +19,6 @@ int fail(const char* message)
 }
 
 constexpr const char* kStateFile = "series_state.txt";
-
 
 // Превращает строку в положительное целое число. false, если не получилось.
 bool parse_size(const char* text, std::size_t& out)
@@ -127,7 +126,6 @@ int cmd_load(int argc, char* argv[])
     return 0;
 }
 
-
 int cmd_print(int argc)
 {
     if (argc != 2)
@@ -178,9 +176,7 @@ int cmd_stats(int argc)
         return fail("cannot compute stats for empty series");
     }
 
-    std::cout << "min=" << min_v
-              << " max=" << max_v
-              << " mean=" << mean_v << '\n';
+    std::cout << "min=" << min_v << " max=" << max_v << " mean=" << mean_v << '\n';
 
     ls::destroy(s);
     return 0;
@@ -204,7 +200,6 @@ bool parse_double(const char* text, double& out)
     out = value;
     return true;
 }
-
 
 int cmd_greater(int argc, char* argv[])
 {
