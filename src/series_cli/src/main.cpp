@@ -20,7 +20,7 @@ int fail(const char* message)
 
 constexpr const char* kStateFile = "series_state.txt";
 
-// Превращает строку в положительное целое число. false, если не получилось.
+// Превращает строку в положительное целое число
 bool parse_size(const char* text, std::size_t& out)
 {
     if (text[0] == '\0' || text[0] == '-')
